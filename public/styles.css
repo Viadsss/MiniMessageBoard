@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.date {
+  font-style: italic;
+  color: grey;
+}
+
+.form-name {
+  font-family: monospace;
+}
+
+.form-message {
+  width: 400px;
+  height: 150px;
+}
