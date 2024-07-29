@@ -1,0 +1,8 @@
+<div>
+  <% messages.forEach((message, index) => { %>
+  <h3><%= message.user %></h3>
+  <p><%= message.text %></p>
+  <p><%= message.added.toLocaleString() %></p>
+  <a href="/message/<%= index %>">Open</a>
+  <% }) %>
+</div>
