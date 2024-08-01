@@ -1,9 +1,9 @@
 const asyncHandler = require("express-async-handler");
-const messages = require("../db/messages");
 const { body, validationResult } = require("express-validator");
+const db = require("../db/queries");
 
 const validateMessage = [
-  body("messageUser")
+  body("username")
     .trim()
     .notEmpty()
     .withMessage("Username is required")
@@ -12,11 +12,11 @@ const validateMessage = [
     .isLength({ min: 3, max: 20 })
     .withMessage("Username must be between 3 and 20 characters"),
 
-  body("messageText")
+  body("text")
     .notEmpty()
     .withMessage("Text is required")
     .isLength({ max: 255 })
-    .withMessage("Text Message maxixmum character limit is 255"),
+    .withMessage("Text Message maximum character limit is 255"),
 ];
 
 exports.newGet = asyncHandler(async (req, res) => {
@@ -33,8 +33,8 @@ exports.newPost = [
         errors: errors.array(),
       });
     }
-    const { messageUser, messageText } = req.body;
-    messages.push({ user: messageUser, text: messageText, added: new Date() });
+    const { username, text } = req.body;
+    await db.insertMessage(username, text);
     res.redirect("/");
   }),
 ];

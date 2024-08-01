@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Mini Messageboard</title>
   </head>
   <body>
     <h1><%= title %></h1>
     <div>
-      <p><strong>From:</strong> <%= message.user %></p>
+      <p><strong>From:</strong> <%= message.username %></p>
       <p><strong>Message:</strong> <%= message.text %></p>
       <p>Added on: <%= message.added.toLocaleString() %></p>
       <a href="/">Back to messages</a>

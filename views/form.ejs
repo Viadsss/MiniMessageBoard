@@ -4,27 +4,27 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="./styles.css" />
+      <link rel="stylesheet" href="/styles.css" />
       <title>Mini Messageboard</title>
     </head>
     <body>
       <h1><%= title %></h1>
       <form method="POST" action="/new">
-        <label for="messageUser">Name:</label>
+        <label for="username">Name:</label>
         <input
           class="form-name"
           type="text"
-          id="messageUser"
-          name="messageUser"
+          id="username"
+          name="username"
           required
         />
         <br />
-        <label for="messageText">Message:</label>
+        <label for="text">Message:</label>
         <br />
         <textarea
           class="form-message"
-          id="messageText"
-          name="messageText"
+          id="text"
+          name="text"
           required
         ></textarea>
         <br />
