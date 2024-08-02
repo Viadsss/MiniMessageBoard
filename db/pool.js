@@ -1,4 +1,9 @@
 const { Pool } = require("pg");
 require("dotenv").config();
 
-module.exports = new Pool({ connectionString: process.env.DB_URL });
+const isProduction = process.env.NODE_ENV === "production";
+const connectionUrl = isProduction
+  ? process.env.DB_URL_PROD
+  : process.env.DB_URL_DEV;
+
+module.exports = new Pool({ connectionString: connectionUrl });
